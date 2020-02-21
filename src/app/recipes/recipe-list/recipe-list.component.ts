@@ -13,6 +13,11 @@ export class RecipeListComponent implements OnInit {
       "chopper",
       "imagine",
       "https://cdn.pixabay.com/photo/2014/12/18/14/49/helicopter-572511_1280.jpg"
+    ),
+    new Recipe(
+      "chopper",
+      "imagine",
+      "https://cdn.pixabay.com/photo/2014/12/18/14/49/helicopter-572511_1280.jpg"
     )
   ];
 
