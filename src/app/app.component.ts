@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = 'cook-book';
+  title = "cook-book";
+
+  featureSelectedInHeader: string;
+
+  onFeatureSelectedInHeader(feature: string) {
+    console.log(feature);
+    this.featureSelectedInHeader = feature;
+  }
 }
