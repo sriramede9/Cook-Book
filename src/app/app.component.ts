@@ -11,7 +11,6 @@ export class AppComponent {
   featureSelectedInHeader: string;
 
   onFeatureSelectedInHeader(feature: string) {
-   
     this.featureSelectedInHeader = feature;
   }
 }
