@@ -30,3 +30,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 * **topics-worked-on** 
   * @Output, EventEmitter in Header module to have a filter on app-module to render the component bases on selection on Header component,Uses ngIf in app-module
+  
+## Iteraton-3
+
+* **directives**
+  *  ` export class DropdownDirective {
+  * @HostBinding("class.open") isOpen = false;
+
+  * @HostListener("click") toggleOpen() {
+    this.isOpen = !this.isOpen;
+  }
+` 
