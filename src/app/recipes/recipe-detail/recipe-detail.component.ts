@@ -1,16 +1,24 @@
 import { Component, OnInit, Input } from "@angular/core";
 
 import { Recipe } from "./../recipe.model";
+import { recipeService } from "./../recipeService";
 
 @Component({
   selector: "app-recipe-detail",
   templateUrl: "./recipe-detail.component.html",
-  styleUrls: ["./recipe-detail.component.css"]
+  styleUrls: ["./recipe-detail.component.css"],
 })
 export class RecipeDetailComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
   @Input() recipe_list_element: Recipe;
+
+  constructor(private recipeServiceinstance: recipeService) {}
+
+  ngOnInit(): void {
+    // this.recipeServiceinstance.recipeElementEmitter.subscribe(
+    //   (recipe: Recipe) => {
+    //     // this.onClicked = true;
+    //     this.recipe_list_element = recipe;
+    //   }
+    // );
+  }
 }

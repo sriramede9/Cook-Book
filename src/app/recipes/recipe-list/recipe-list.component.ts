@@ -19,5 +19,5 @@ export class RecipeListComponent implements OnInit {
 
   //@Output() recipe-list-Emitter = new EventEmitter<Recipe>();
 
-  @Output() recipelistEmitter = new EventEmitter<Recipe>();
+  // @Output() recipelistEmitter = new EventEmitter<Recipe>();
 }

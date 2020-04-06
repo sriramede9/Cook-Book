@@ -6,9 +6,7 @@
 <hr />
 <div class="row">
   <div class="col-xs-12">
-    <app-recipe-item
-      [recipes]="recipes"
-      (recipeElementEmitter)="recipelistEmitter.emit($event)"
-    ></app-recipe-item>
+    <app-recipe-item [recipes]="recipes"></app-recipe-item>
   </div>
 </div>
+<!-- (recipeElementEmitter)="recipelistEmitter.emit($event)" -->
