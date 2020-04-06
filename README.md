@@ -41,3 +41,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     this.isOpen = !this.isOpen;
   }
 ` 
+## Iteraton-4
+
+* **Services**
+* **recipeService and shoppingListService**
+* **Moved Recipe array to recipe service, providers array in recipe**
