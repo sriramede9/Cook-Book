@@ -4,16 +4,17 @@ import {
   ViewChild,
   ElementRef,
   Output,
-  EventEmitter
+  EventEmitter,
 } from "@angular/core";
 import { Ingredient } from "../../shared/ingredient.model";
+import { shoppingListService } from "./../shoppingListService";
 @Component({
   selector: "app-shopping-edit",
   templateUrl: "./shopping-edit.component.html",
-  styleUrls: ["./shopping-edit.component.css"]
+  styleUrls: ["./shopping-edit.component.css"],
 })
 export class ShoppingEditComponent implements OnInit {
-  constructor() {}
+  constructor(private shoppingListService: shoppingListService) {}
 
   ngOnInit(): void {}
 
@@ -25,41 +26,39 @@ export class ShoppingEditComponent implements OnInit {
 
   shoppingElement: Ingredient;
 
-  shoppingElementsArray: Array<{ name: string; amount: number }> = [];
+  //  shoppingElementsArray: Array<{ name: string; amount: number }> = [];
 
-  @Output() shoppingElementEmitter = new EventEmitter<Array<Ingredient>>();
+  //@Output() shoppingElementEmitter = new EventEmitter<Array<Ingredient>>();
 
-  onClickAddItem() {
+  getIngredientsFromUserInput(): Ingredient {
     this.name = this.nameValue.nativeElement.value;
     this.amount = this.amountValue.nativeElement.value;
-    this.shoppingElement = { name: this.name, amount: this.amount };
-    this.shoppingElementsArray.push(this.shoppingElement);
+    return { name: this.name, amount: this.amount };
+  }
 
-    // for (var x of this.shoppingElementsArray) {
-    //   console.log(x.name + " .Added...." + x.amount);
-    // }
+  onClickAddItem() {
+    // this.name = this.nameValue.nativeElement.value;
+    // this.amount = this.amountValue.nativeElement.value;
+    this.shoppingElement = this.getIngredientsFromUserInput();
+    this.shoppingListService.addtoShoppingElementsArray(this.shoppingElement);
   }
 
   onClickDeleteItem() {
-    this.name = this.nameValue.nativeElement.value;
-    this.amount = this.amountValue.nativeElement.value;
-    this.shoppingElement = { name: this.name, amount: this.amount };
+    // this.name = this.nameValue.nativeElement.value;
+    // this.amount = this.amountValue.nativeElement.value;
+    this.shoppingElement = this.getIngredientsFromUserInput();
 
-    this.shoppingElementsArray.forEach((item, index) => {
-      if (
-        (item.name && item.amount) ===
-        (this.shoppingElement.name && this.shoppingElement.amount)
-      ) {
-        // console.log(item.name + "..." + item.amount);
-        this.shoppingElementsArray.splice(index, 1);
-      }
-    });
+    this.shoppingListService.deletefromShoppingElementsArray(
+      this.shoppingElement
+    );
   }
 
   onClickClearItem() {
-    this.shoppingElementsArray = [];
+    this.shoppingListService.clearfromShoppingElementsArray();
   }
   onClickEmit() {
-    this.shoppingElementEmitter.emit(this.shoppingElementsArray);
+    this.shoppingListService.shoppingElementEmitter.emit(
+      this.shoppingListService.getShoppingElelmentsArray()
+    );
   }
 }

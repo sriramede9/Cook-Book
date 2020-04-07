@@ -28,21 +28,25 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Iteration-2
 
-* **topics-worked-on** 
-  * @Output, EventEmitter in Header module to have a filter on app-module to render the component bases on selection on Header component,Uses ngIf in app-module
-  
+- **topics-worked-on**
+
+  - @Output, EventEmitter in Header module to have a filter on app-module to render the component bases on selection on Header component,Uses ngIf in app-module
+
 ## Iteraton-3
 
-* **directives**
-  *  ` export class DropdownDirective {
-  * @HostBinding("class.open") isOpen = false;
+- **directives**
 
-  * @HostListener("click") toggleOpen() {
+  - ` export class DropdownDirective {
+  - @HostBinding("class.open") isOpen = false;
+
+  - @HostListener("click") toggleOpen() {
     this.isOpen = !this.isOpen;
-  }
-` 
+    }
+    `
+
 ## Iteraton-4
 
-* **Services**
-* **recipeService and shoppingListService**
-* **Moved Recipe array to recipe service, providers array in recipe**
+- **Services**
+- **recipeService and shoppingListService**
+- **Moved Recipe array to recipe service, providers array in recipe**
+- **Moved shopping-edit array operations to shoppingListServices, providers array in shoppingList**
