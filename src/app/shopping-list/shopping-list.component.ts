@@ -8,7 +8,6 @@ import { shoppingListService } from "./shoppingListService";
   selector: "app-shopping-list",
   templateUrl: "./shopping-list.component.html",
   styleUrls: ["./shopping-list.component.css"],
-  providers: [shoppingListService],
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = [];
