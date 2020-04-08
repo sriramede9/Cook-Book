@@ -56,9 +56,9 @@ export class ShoppingEditComponent implements OnInit {
   onClickClearItem() {
     this.shoppingListService.clearfromShoppingElementsArray();
   }
-  onClickEmit() {
-    this.shoppingListService.shoppingElementEmitter.emit(
-      this.shoppingListService.getShoppingElelmentsArray()
-    );
-  }
+  // onClickEmit() {
+  //   this.shoppingListService.shoppingElementEmitter.emit(
+  //     this.shoppingListService.getShoppingElelmentsArray()
+  //   );
+  // }
 }

@@ -12,12 +12,18 @@ import { shoppingListService } from "./shoppingListService";
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = [];
 
-  constructor(private shoppingListService: shoppingListService) {}
+  constructor(private shoppingListService: shoppingListService) {
+    console.log("constructor from shopping list componentts");
+  }
 
   ngOnInit(): void {
     this.shoppingListService.shoppingElementEmitter.subscribe((ingrediets) => {
       this.ingredients = ingrediets;
+      this.ingredients.forEach((x) => {
+        console.log(x + "array elements of ingredients");
+      });
     });
+    console.log("from ngonInit in shopping-list ");
   }
 
   //isClicked: boolean = false;

@@ -15,7 +15,7 @@ export class RecipeItemComponent implements OnInit {
 
   // @Output() recipeElementEmitter = new EventEmitter<Recipe>();
 
-  recipeElimentSelected: Recipe = new Recipe("", "", "");
+  recipeElimentSelected: Recipe;
 
   onClickAssignValue(valueSelected) {
     this.recipeElimentSelected = valueSelected;

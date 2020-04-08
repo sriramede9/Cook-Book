@@ -1,24 +1,45 @@
 import { Recipe } from "./recipe.model";
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
+import { Ingredient } from "../shared/ingredient.model";
+import { shoppingListService } from "./../shopping-list/shoppingListService";
 
+@Injectable()
 export class recipeService {
+  constructor(private shoppingListService: shoppingListService) {}
+
   recipeElementEmitter = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe(
-      "chopper",
-      "imagine",
-      "https://cdn.pixabay.com/photo/2014/12/18/14/49/helicopter-572511_1280.jpg"
+      "Tasty Poutine",
+      "It's just awesome",
+      "https://cdn.pixabay.com/photo/2020/03/22/16/18/bread-4957679_1280.jpg",
+      [
+        new Ingredient("Meat", 1),
+        new Ingredient("fries", 1),
+        new Ingredient("sauce", 2),
+      ]
     ),
     new Recipe(
-      "Harley-D",
-      "Fly",
-      "https://cdn.pixabay.com/photo/2016/12/13/22/39/harley-davidson-1905281_1280.jpg"
+      "Oreo Almond Shake",
+      "Oreo chocky",
+      "https://cdn.pixabay.com/photo/2017/08/05/18/58/milk-2585099_1280.jpg",
+      [
+        new Ingredient("oreo biscuits", 5),
+        new Ingredient("almond milk", 3),
+        new Ingredient("dates", 4),
+      ]
     ),
   ];
 
   getRecipes(): Recipe[] {
     //slice will give a cope instead of recipes instance
     return this.recipes.slice();
+  }
+
+  addToShoppingListArray(ingrediets: Ingredient[]) {
+    ingrediets.forEach((item) => {
+      this.shoppingListService.addtoShoppingElementsArray(item);
+    });
   }
 }
