@@ -13,17 +13,14 @@ export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = [];
 
   constructor(private shoppingListService: shoppingListService) {
-    console.log("constructor from shopping list componentts");
+    // this.ingredients = this.shoppingListService.getShoppingElelmentsArray();
   }
 
   ngOnInit(): void {
     this.shoppingListService.shoppingElementEmitter.subscribe((ingrediets) => {
       this.ingredients = ingrediets;
-      this.ingredients.forEach((x) => {
-        console.log(x + "array elements of ingredients");
-      });
     });
-    console.log("from ngonInit in shopping-list ");
+    this.ingredients = this.shoppingListService.getShoppingElelmentsArray();
   }
 
   //isClicked: boolean = false;
