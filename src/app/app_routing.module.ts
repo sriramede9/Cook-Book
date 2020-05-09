@@ -1,7 +1,5 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
-import { AppComponent } from "./app.component";
+import { RouterModule, Routes } from "@angular/router";
 import { HeaderComponent } from "./header/header.component";
 import { RecipesComponent } from "./recipes/recipes.component";
 // tslint:disable-next-line: quotemark
@@ -14,25 +12,18 @@ import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-ed
 
 import { DropdownDirective } from "./shared/dropdown.directive";
 import { shoppingListService } from "./shopping-list/shoppingListService";
-import { Routes, RouterModule } from "@angular/router";
-import { AppRouting } from "./app_routing.module";
-import { ErrorPageComponent } from '../error-page/error-page.component';
+import { ErrorPageComponent } from "./../error-page/error-page.component";
+
+const appRoutes: Routes = [
+  { path: "", redirectTo: "/recipes", pathMatch: "full" },
+  { path: "recipes", component: RecipesComponent },
+  { path: "shoppingList", component: ShoppingListComponent },
+  { path: "error-page", component: ErrorPageComponent },
+  { path: "**", redirectTo: "/error-page" },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    DropdownDirective,
-    ErrorPageComponent,
-  ],
-  imports: [BrowserModule, AppRouting],
-  providers: [shoppingListService],
-  bootstrap: [AppComponent],
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule],
 })
-export class AppModule {}
+export class AppRouting {}
