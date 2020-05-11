@@ -35,7 +35,6 @@ export class RecipeDetailComponent implements OnInit {
       ];
     });
 
-    // console.log(this.RecipeloadedFromRouteParams);
   }
   addToShoppingList() {
     this.recipeServiceinstance.addToShoppingListArray(

@@ -50,3 +50,21 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - **recipeService and shoppingListService**
 - **Moved Recipe array to recipe service, providers array in recipe**
 - **Moved shopping-edit array operations to shoppingListServices, providers array in shoppingList**
+
+## Iteration -4 Routing
+
+**Routing**
+const appRoutes: Routes = [
+{ path: "", redirectTo: "/recipes", pathMatch: "full" },
+{
+path: "recipes",
+component: RecipesComponent,
+children: [
+{ path: "", component: RecipeStartComponent },
+{ path: ":id", component: RecipeDetailComponent },
+],
+},
+{ path: "shoppingList", component: ShoppingListComponent },
+{ path: "error-page", component: ErrorPageComponent },
+{ path: "\*\*", redirectTo: "/error-page" },
+];``
