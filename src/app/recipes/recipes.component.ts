@@ -22,7 +22,7 @@ export class RecipesComponent implements OnInit {
       }
     );
     // this.onClicked=true;
-    console.log(this.selectedReceipefromRecipeListcom);
+    // console.log(this.selectedReceipefromRecipeListcom);
   }
 
   // onClickForDetails(clickedElement: Recipe) {
