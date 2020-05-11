@@ -1,10 +1,8 @@
-<p>recipe-item works!</p>
-
 <a
+  [routerLink]="['/recipes', i]"
   style="cursor: pointer;"
   class="list-group-item clearfix"
-  *ngFor="let recipe of recipes"
-  (click)="onClickAssignValue(recipe); onClickforDetails()"
+  *ngFor="let recipe of recipes; let i = index"
 >
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ recipe.name }}</h4>

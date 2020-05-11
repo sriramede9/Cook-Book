@@ -4,11 +4,12 @@
     <!-- (recipelistEmitter)="onClickForDetails($event)" -->
   </div>
   <div class="col-md-7">
-    <app-recipe-detail *ngIf="onClicked; else infoText"
-    [recipe_list_element]="selectedReceipefromRecipeListcom"></app-recipe-detail>
-    <ng-template #infoText>
+    <!-- <app-recipe-detail *ngIf="onClicked; else infoText"
+    [recipe_list_element]="selectedReceipefromRecipeListcom"></app-recipe-detail> -->
+    <router-outlet></router-outlet>
+    <!-- <ng-template #infoText>
       <p>Please select a recipe !</p>
-    </ng-template>
+    </ng-template> -->
   </div>
 </div>
 <!-- [recipeElementEmitter]="selectedReceipefromRecipeListcom" -->

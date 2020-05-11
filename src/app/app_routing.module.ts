@@ -13,10 +13,18 @@ import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-ed
 import { DropdownDirective } from "./shared/dropdown.directive";
 import { shoppingListService } from "./shopping-list/shoppingListService";
 import { ErrorPageComponent } from "./../error-page/error-page.component";
+import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/recipes", pathMatch: "full" },
-  { path: "recipes", component: RecipesComponent },
+  {
+    path: "recipes",
+    component: RecipesComponent,
+    children: [
+      { path: "", component: RecipeStartComponent },
+      { path: ":id", component: RecipeDetailComponent },
+    ],
+  },
   { path: "shoppingList", component: ShoppingListComponent },
   { path: "error-page", component: ErrorPageComponent },
   { path: "**", redirectTo: "/error-page" },

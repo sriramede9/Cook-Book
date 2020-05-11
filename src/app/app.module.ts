@@ -16,7 +16,8 @@ import { DropdownDirective } from "./shared/dropdown.directive";
 import { shoppingListService } from "./shopping-list/shoppingListService";
 import { Routes, RouterModule } from "@angular/router";
 import { AppRouting } from "./app_routing.module";
-import { ErrorPageComponent } from '../error-page/error-page.component';
+import { ErrorPageComponent } from "../error-page/error-page.component";
+import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ErrorPageComponent } from '../error-page/error-page.component';
     RecipeListComponent,
     RecipeDetailComponent,
     RecipeItemComponent,
+    RecipeStartComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
