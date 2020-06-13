@@ -10,17 +10,17 @@ import { recipeService } from "./recipeService";
 export class RecipesComponent implements OnInit {
   constructor(private recipeServiceinstance: recipeService) {}
 
-  selectedReceipefromRecipeListcom: Recipe;
+  // selectedReceipefromRecipeListcom: Recipe;
 
-  onClicked: boolean = false;
+  // onClicked: boolean = false;
 
   ngOnInit(): void {
-    this.recipeServiceinstance.recipeElementEmitter.subscribe(
-      (recipe: Recipe) => {
-        this.onClicked = true;
-        this.selectedReceipefromRecipeListcom = recipe;
-      }
-    );
+    // this.recipeServiceinstance.recipeElementEmitter.subscribe(
+    //   (recipe: Recipe) => {
+    //     this.onClicked = true;
+    //     this.selectedReceipefromRecipeListcom = recipe;
+    //   }
+    // );
     // this.onClicked=true;
     // console.log(this.selectedReceipefromRecipeListcom);
   }

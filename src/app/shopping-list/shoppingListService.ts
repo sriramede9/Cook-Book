@@ -1,8 +1,10 @@
 import { Ingredient } from "../shared/ingredient.model";
 import { EventEmitter } from "@angular/core";
+import { Subject } from "rxjs";
 
 export class shoppingListService {
   shoppingElementEmitter = new EventEmitter<Array<Ingredient>>();
+  shoppingElementEmitterSubject = new Subject<Array<Ingredient>>();
 
   private shoppingElementsArray: Array<{ name: string; amount: number }> = [
     new Ingredient("test", 3),
@@ -15,11 +17,13 @@ export class shoppingListService {
   addtoShoppingElementsArray(ingredient: Ingredient) {
     this.shoppingElementsArray.push(ingredient);
     this.shoppingElementEmitter.emit(this.getShoppingElelmentsArray());
+    this.shoppingElementEmitterSubject.next(this.getShoppingElelmentsArray());
   }
 
   addmultipleShoppingElementsArray(ingredients: Ingredient[]) {
     this.shoppingElementsArray.push(...ingredients);
     this.shoppingElementEmitter.emit(this.getShoppingElelmentsArray());
+    this.shoppingElementEmitterSubject.next(this.getShoppingElelmentsArray());
   }
 
   deletefromShoppingElementsArray(shoppingElement: Ingredient) {
@@ -38,5 +42,6 @@ export class shoppingListService {
   clearfromShoppingElementsArray() {
     this.shoppingElementsArray = [];
     this.shoppingElementEmitter.emit(this.getShoppingElelmentsArray());
+    this.shoppingElementEmitterSubject.next(this.getShoppingElelmentsArray());
   }
 }

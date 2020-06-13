@@ -11,9 +11,9 @@ export class AppComponent {
 
   constructor(private shoppingListService: shoppingListService) {}
 
-  featureSelectedInHeader: string;
+  // featureSelectedInHeader: string;
 
-  onFeatureSelectedInHeader(feature: string) {
-    this.featureSelectedInHeader = feature;
-  }
+  // onFeatureSelectedInHeader(feature: string) {
+  //   this.featureSelectedInHeader = feature;
+  // }
 }
